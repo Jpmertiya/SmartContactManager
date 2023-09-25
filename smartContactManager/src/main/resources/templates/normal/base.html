@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}">Document</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<!-- navbar -->
+	<nav class="fixed-top navbar navbar-expand-lg navbar-dark custom-navbar-bg">
+
+		<div class="container-fluid fs-4">
+
+			<a class="navbar-brand fs-4" href="/">Smart Contact Manager</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+				<ul class="navbar-nav ms-auto text-uppercase">
+
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link " style="cursor: default;" tabindex="-1" aria-disabled="true"><span
+								th:text="${user.Name}"></span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link " th:href="@{/logout}" tabindex="-1" aria-disabled="true">Logout</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+	<!-- end of navbar -->
+
+
+
+	<!--  Start of of sidebar-->
+
+	<div class="sidebar">
+		<span class="crossBtn" onclick="toggleSidebar()">&times;</span>
+		
+		<a th:href="@{/user/dash}" class="items"><i class="fa-solid fa-house"></i> Home</a>
+		<a href="" class="items"><i class="fas fa-id-card-alt"></i> view Contacts</a>
+		<a th:href="@{/user/add-contact}" class="items"><i class="fas fa-pencil-alt"></i> Add Contact</a>
+		<a href="" class="items"><i class="fas fa-user-circle"></i> Your Profile</a>
+		<a href="" class="items"><i class="fas fa-cogs"></i> Settings</a>
+		<a th:href="@{/logout}" class="items"><i class="fas fa-sign-out-alt"></i> Logout</a>
+		<div class="divider"></div>
+
+	</div>
+
+	<!--  End of sidebar-->
+	<!--  start of body content-->
+	<div class="content">
+		
+		<div onclick="toggleSidebar()" style="cursor: pointer;" class="fas fa-bars mt-2"></div>
+		
+		<div th:if="${session.message}" class="container">
+			<div th:classappend="${'alert-'+session.message.type}" class="alert text-center m-0" role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+			
+			<th:block th:text="${@sessionHelper.removeSession()}"></th:block>
+		</div>
+		
+		<div th:replace="${content}">
+
+		</div>
+	</div>
+	<!--  end of body content -->
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+
+	<script th:src="@{/js/script.js}"></script>
+
+</body>
+
+</html>

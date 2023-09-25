@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>About page</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<form class="mt-2" 
+					method="POST"
+					action="#"
+					enctype="multipart/form-data"
+					th:action="@{/user/process-contact}" 
+					th:object="${contact}">
+
+						<div class="form-group">
+							<label for="name">Name:</label>
+							<input type="text" class="form-control" id="Name" name="name" placeholder="Enter your name">
+						</div>
+
+						<div class="form-group">
+							<label for="nickname">Nickname:</label>
+							<input type="text" class="form-control" id="NickName" name="nick_name"
+								placeholder="Enter your nickname">
+						</div>
+
+						<div class="form-group">
+							<label for="phone">Phone:</label>
+							<input type="tel" class="form-control" id="phone" name="Phone"
+								placeholder="Enter your phone number">
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email:</label>
+							<input type="email" class="form-control" id="email" name="Email"
+								placeholder="Enter your email address">
+						</div>
+						
+						<div class="form-group">
+							<label for="image">Image:</label>	
+							<input type="file" class="form-control" id="image" name="profileImages">
+						</div>
+
+						<div class="form-group">
+							<label for="workDescription">Work Description:</label>
+							<textarea class="form-control" id="workDescription" name="Description" rows="3"
+								placeholder="Enter your work description"></textarea>
+						</div>
+
+
+
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

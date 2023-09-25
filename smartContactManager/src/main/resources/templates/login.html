@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>home page</title>
+	
+</head>
+
+<body>
+	<section style="height: 100%;">
+		<div class="container">
+			
+			<form th:action="@{/dologin}" action="#" method="post">
+				<!-- Headings for the form -->
+				<div class="headingsContainer">
+					<h3>Sign <spam style="color: #8FF4D2;">in</spam></h3>
+					<p style="color: white;">Sign in with your username and password</p>
+				</div>
+				
+				<div class="alert alert-danger" th:if="${param.error}">
+					Invalid userName or Password
+					
+				</div>
+				<div class="alert alert-success" th:if="${param.logout}">
+					Logout Successfully
+				</div>
+				
+				<!-- Main container for all inputs -->
+				<div class="mainContainer">
+					<!-- Username -->
+					<label for="username">Your username</label>
+					<input type="text" placeholder="Enter Username" name="username" required>
+
+					<br><br>
+
+					<!-- Password -->
+					<label for="pswrd">Your password</label>
+					<input type="password" placeholder="Enter Password" name="password" required>
+
+					<!-- sub container for the checkbox and forgot password link -->
+					<div class="subcontainer">
+						<label>
+							<input type="checkbox" checked="checked" name="remember"> Remember me
+						</label>
+						<p class="forgotpsd"> <a href="#">Forgot Password?</a></p>
+					</div>
+
+
+					<!-- Submit button -->
+					<button type="submit">Login</button>
+
+					<!-- Sign up link -->
+					<p class="register">Not a member? <a href="/signup">Register here!</a></p>
+
+				</div>
+
+			</form>
+		</div>
+	</section>
+
+</body>
+
+</html>

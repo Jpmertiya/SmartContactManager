@@ -1,0 +1,196 @@
+body {
+	background-color: #e2e2e2 !important;
+}
+
+.custom-navbar-bg {
+	background-color: #f48fb1 !important;
+}
+
+.banner {
+	width: 100%;
+	height: 93vh;
+	background-image: linear-gradient(to bottom, rgba(244, 143, 177, 0.4), rgba(40, 0, 88, 0.5)),
+		url(../images/bg.jpeg);
+		background-position: bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		
+	color: white;
+}
+
+.my-card {
+	padding: 20px;
+	background-color: #ffffff;
+}
+
+
+/*  sign in page css */
+form {
+	width: 35rem;
+	margin: auto;
+	color: whitesmoke;
+	backdrop-filter: blur(16px) saturate(180%);
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
+	border-radius: 12px;
+	border: 2px solid white;
+	box-shadow: 4px 5px 3px #f48fb1;
+	padding: 20px 25px;
+	margin-top: 2%;
+	background: linear-gradient(to right,  #f48fb1, rgb(54, 228, 141));
+}
+
+input[type=text],
+input[type=password] {
+	width: 100%;
+	margin: 10px 0;
+	border-radius: 5px;
+	padding: 15px 18px;
+	box-sizing: border-box;
+}
+
+button {
+	background-color: #030804;
+	color: white;
+	padding: 14px 20px;
+	border-radius: 5px;
+	margin: 7px 0;
+	width: 100%;
+	font-size: 18px;
+}
+
+button:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.headingsContainer {
+	text-align: center;
+}
+
+.headingsContainer p {
+	color: gray;
+}
+
+.mainContainer {
+	padding: 16px;
+}
+
+
+.subcontainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.subcontainer a {
+	font-size: 16px;
+	margin-bottom: 12px;
+}
+
+span.forgotpsd a {
+	float: right;
+	color: whitesmoke;
+	padding-top: 16px;
+}
+
+.forgotpsd a {
+	color:#f48fb1;
+}
+
+.forgotpsd a:link {
+	text-decoration: none;
+}
+
+.register {
+	color: white;
+	text-align: center;
+}
+
+.register a {
+	color: #f48fb1;
+}
+
+.register a:link {
+	text-decoration: none;
+}
+
+
+/* styling of side bar after login  */
+.sidebar{
+	width: 18%;
+	background-color: white;
+	height: 100vh;
+	position: fixed;
+	padding-top: 38px;
+	z-index: 9999999999;
+	transition: .5s ease;
+}
+.sidebar a{
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: grey;
+	
+}
+.sidebar a:hover{
+	color: #f48fb1;
+	background: #e2e2e2;
+}
+.divider{
+	margin-top: 10px;
+	width: 100%;
+	height: 1px;
+	background-color: #f48fb1;	
+}
+
+.sidebar .crossBtn{
+	position: absolute;
+	top: 0;
+	right: 15px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.content{
+	overflow-y: scroll;
+	margin-left: 19%;
+	margin-top: 4.6%;
+	
+}
+
+
+
+
+
+
+/* Media queries for the responsiveness of the login page */
+@media only screen and (max-width: 600px) {
+	
+	.sidebar{
+		display: none;
+		width: 80%!important;
+		background: white;
+		height: 100vh;
+		position: fixed;
+		transition: .5s ease;
+		
+	}
+	.content{
+		margin-left: 0%!important;
+		margin-top: 25%!important;
+		overflow: auto;
+	}
+	
+	form {
+		width: 25rem;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	form {
+		width: 20rem;
+	}
+}
