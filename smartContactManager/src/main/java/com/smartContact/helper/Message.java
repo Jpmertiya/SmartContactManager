@@ -1,10 +1,5 @@
 package com.smartContact.helper;
 
-import org.springframework.web.context.request.RequestContextHolder;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
 public class Message {
 	private String content;
 	private String type;
